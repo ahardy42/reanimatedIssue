@@ -7,11 +7,14 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "nuclear": "rm -rf node_modules && npm cache clean --force && yarn && cd ios && rm -rf Podfile.lock && rm -rf Pods && pod repo update && pod install && rm -rf build && cd ..",
+    "clean-start": "npm run nuclear && watchman watch-del-all && rm -fr $TMPDIR/haste-map-* && rm -rf $TMPDIR/metro-cache && yarn start --reset-cache"
   },
   "dependencies": {
     "react": "17.0.2",
-    "react-native": "0.68.5"
+    "react-native": "0.68.5",
+    "react-native-reanimated": "2.14.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
